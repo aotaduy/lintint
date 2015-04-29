@@ -1,0 +1,28 @@
+{
+  "name": "lintint",
+  "version": "0.0.2",
+  "description": "Integrates linters to check javascript, html, css, less code",
+  "main": "index.js",
+  "bin": "index.js",
+  "scripts": {
+    "test": "mocha test"
+  },
+  "author": "Andres Otaduy (andreseninternet@hotmail.com)",
+  "license": "MIT",
+  "dependencies": {
+    "cjson": "^0.3.0",
+    "colors": "^1.0.3",
+    "eslint": "^0.17.1",
+    "findit": "^2.0.0",
+    "htmlhint": "^0.9.7",
+    "htmllint": "^0.2.3",
+    "jscs": "^1.11.3",
+    "jshint": "^2.6.3",
+    "lazy": "^1.0.11",
+    "minimist": "^1.1.1",
+    "lintspelljs": "git+http://github.com/aotaduy/lintspelljs.git"
+  },
+  "devDependencies": {
+    "chai": "^2.3.0"
+  }
+}

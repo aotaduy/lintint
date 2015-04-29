@@ -1,0 +1,17 @@
+{
+    // names of npm modules to load into htmllint
+    "plugins": [],
+    "attr-name-style":"dash",
+    "attr-no-dup": true,
+    "attr-quote-style":false,
+    "attr-req-value":false,
+    "doctype-first":false,
+    "href-style":false,
+    "id-class-style":"dash",
+    "id-no-dup":true,
+    "img-req-alt":true,
+    "indent-style":"spaces",
+    "indent-width":4,
+    "spec-char-escape":false
+    // TODO: export htmllint's default cfg
+}

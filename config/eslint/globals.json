@@ -1,0 +1,16 @@
+[
+    "angular",
+    "moment",
+    "_",
+    "$rootScope",
+    "$compile",
+    "specHelper",
+    "inject",
+    "$templateCache",
+    "expect",
+    "module",
+    "i18n",
+    "$httpBackend",
+    "sinon"
+
+]
