@@ -5,7 +5,6 @@ This program integrates several lint tools for the javascript stack and allows t
 ###Integrated Tools
 
 + jscs
-+ jslint
 + eslint
 + jshint
 + htmllint
@@ -14,10 +13,10 @@ This program integrates several lint tools for the javascript stack and allows t
 It has integrated a RegExpChecker that allow you to define rules based on a regexp for any kind of file.
 
 And in the future
-````
-lessc
-csslint
-````
+
++ lessc
++ csslint
++ csslint
 
 ##Installation
 ````
@@ -39,4 +38,4 @@ Git-Repo (https://github.com/aotaduy/lintint.git)
 ##Configuration
 lintint uses the configuration files located at:
 <package-root>/config/
-For each tool integrated. 
+For each tool integrated.

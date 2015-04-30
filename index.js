@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 
-var colors = require('colors');
 var argv = require('minimist')(process.argv.slice(2));
 var findit = require('findit');
 var SourceFile = require('./lib/SourceFile.js');
 var fs = require('fs');
+var start = process.hrtime();
 
 if (argv.help) {
     console.log('lint-integrator [options] <directories> <files>');
@@ -13,11 +13,11 @@ if (argv.help) {
     console.log('--help\t: Print this help');
     console.log('--version\t: Print version information');
     console.log('--version\t: By Andres Otaduy');
-    return 0;
+    process.exit();
 }
 if (argv.version) {
     console.log('lint-integrator version 0.0.2');
-    return 0;
+    process.exit();
 }
 
 if (argv._.length === 0) {
@@ -36,16 +36,22 @@ if (argv._.length === 0) {
 function startFinderOn(aPath) {
     var finder = findit(aPath);
     var files = [];
-    finder.on('file', function(file, stat) {
+    finder.on('file', function(file) {
         var aFile = new SourceFile(file);
         aFile.process();
         files.push(aFile);
     });
 
     finder.on('end', function() {
+        var totalIssues = 0;
+        var diff, msecs;
         files
         .forEach(function(aFile) {
             aFile.reportIssues();
+            totalIssues =  totalIssues + aFile.issues.length;
         });
+        diff = process.hrtime(start);
+        msecs = ((diff[0] * 1e9 + diff[1]) / 1000000).toFixed(0);
+        console.log('[Detected: ', totalIssues, 'issues in', files.length, 'files in', msecs, 'ms]');
     });
 }
