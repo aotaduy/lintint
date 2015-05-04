@@ -1,6 +1,6 @@
 ##intlint
 
-This program integrates several lint tools for the javascript stack and allows the user to get an line by line ordered list of lints for each file
+This program integrates several lint tools for the javascript stack and allows the user to get an ordered list of lints for each file.
 
 ###Integrated Tools
 
@@ -15,7 +15,6 @@ It has integrated a RegExpChecker that allow you to define rules based on a rege
 And in the future
 
 + lessc
-+ csslint
 + csslint
 
 ##Installation
@@ -38,4 +37,3 @@ Git-Repo (https://github.com/aotaduy/lintint.git)
 ##Configuration
 lintint uses the configuration files located at:
 <package-root>/config/
-For each tool integrated.

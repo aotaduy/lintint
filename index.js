@@ -52,6 +52,6 @@ function startFinderOn(aPath) {
         });
         diff = process.hrtime(start);
         msecs = ((diff[0] * 1e9 + diff[1]) / 1000000).toFixed(0);
-        console.log('[Detected: ', totalIssues, 'issues in', files.length, 'files in', msecs, 'ms]');
+        console.log('[', totalIssues, 'issues in', files.length, 'files in', msecs, 'ms ]');
     });
 }
