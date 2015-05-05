@@ -1,4 +1,4 @@
-##intlint
+##lintint
 
 This program integrates several lint tools for the javascript stack and allows the user to get an ordered list of lints for each file.
 
