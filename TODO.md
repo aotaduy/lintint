@@ -10,6 +10,7 @@ Add jsonlint integration
 
 ##Priority 3
 Refactor cli into a separate file.
+Refactor tests, add helper function, add test cases
 
 ##Done
 Add commandline options to allow user to enter a list of file patterns or a list of directories.
