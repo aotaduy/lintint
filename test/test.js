@@ -28,12 +28,22 @@ describe('Integrator', function() {
             });
         });
         it('Run checks on clean files and do not report', function() {
-            var files = fs.readdirSync(path.join(__dirname,'./fixtures/clean/'));
-            var source;
+            var dir = path.join(__dirname,'./fixtures/clean/'),
+                files = fs.readdirSync(dir),
+                source;
             files.forEach(function(aFilePath) {
-                source = new SourceFile(path.join(__dirname, '/fixtures/clean/', aFilePath));
+                source = new SourceFile(path.join(dir, aFilePath));
                 source.process();
                 expect(source.issues.length).to.be.equal(0);
+            });
+        });
+        it('Run checks on css files and report', function() {
+            var files = fs.readdirSync(path.join(__dirname,'/fixtures/css/broken'));
+            var source;
+            files.forEach(function(aFilePath) {
+                source = new SourceFile(path.join(__dirname, '/fixtures/css/broken', aFilePath));
+                source.process();
+                expect(source.issues.length).to.be.above(0);
             });
         });
     });

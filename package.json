@@ -12,9 +12,9 @@
   "dependencies": {
     "cjson": "^0.3.0",
     "colors": "^1.0.3",
+    "csslint": "^0.10.0",
     "eslint": "^0.17.1",
     "findit": "^2.0.0",
-    "htmlhint": "^0.9.7",
     "htmllint": "^0.2.3",
     "jscs": "^1.11.3",
     "jshint": "^2.6.3",
