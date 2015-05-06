@@ -4,6 +4,7 @@ var argv = require('minimist')(process.argv.slice(2));
 var findit = require('findit');
 var SourceFile = require('./lib/SourceFile.js');
 var fs = require('fs');
+var Q = require('q');
 var start = process.hrtime();
 
 if (argv.help) {
@@ -35,23 +36,24 @@ if (argv._.length === 0) {
 
 function startFinderOn(aPath) {
     var finder = findit(aPath);
-    var files = [];
+    var filePromises = [];
     finder.on('file', function(file) {
         var aFile = new SourceFile(file);
-        aFile.process();
-        files.push(aFile);
+        filePromises.push(aFile.process());
     });
 
     finder.on('end', function() {
-        var totalIssues = 0;
-        var diff, msecs;
-        files
-        .forEach(function(aFile) {
-            aFile.reportIssues();
-            totalIssues =  totalIssues + aFile.issues.length;
+        Q.all(filePromises).then(function(files) {
+            var totalIssues = 0;
+            var diff, msecs;
+            files
+            .forEach(function(aFile) {
+                aFile.reportIssues();
+                totalIssues =  totalIssues + aFile.issues.length;
+            });
+            diff = process.hrtime(start);
+            msecs = ((diff[0] * 1e9 + diff[1]) / 1000000).toFixed(0);
+            console.log('[', totalIssues, 'issues in', files.length, 'files in', msecs, 'ms ]');
         });
-        diff = process.hrtime(start);
-        msecs = ((diff[0] * 1e9 + diff[1]) / 1000000).toFixed(0);
-        console.log('[', totalIssues, 'issues in', files.length, 'files in', msecs, 'ms ]');
     });
 }
