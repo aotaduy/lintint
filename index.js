@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 
-var argv = require('minimist')(process.argv.slice(2));
-var findit = require('findit');
-var SourceFile = require('./lib/SourceFile.js');
-var fs = require('fs');
-var Q = require('q');
-var start = process.hrtime();
+var argv = require('minimist')(process.argv.slice(2)),
+    findit = require('findit'),
+    SourceFile = require('./lib/SourceFile.js'),
+    fs = require('fs'),
+    Q = require('q'),
+    start = process.hrtime();
 
 if (argv.help) {
     console.log('lint-integrator [options] <directories> <files>');
@@ -54,6 +54,6 @@ function startFinderOn(aPath) {
             diff = process.hrtime(start);
             msecs = ((diff[0] * 1e9 + diff[1]) / 1000000).toFixed(0);
             console.log('[', totalIssues, 'issues in', files.length, 'files in', msecs, 'ms ]');
-        });
+        }).done();
     });
 }
