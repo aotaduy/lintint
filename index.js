@@ -17,7 +17,7 @@ if (argv.help) {
     process.exit();
 }
 if (argv.version) {
-    console.log('lint-integrator version 0.0.2');
+    console.log('lint-integrator version 0.0.3');
     process.exit();
 }
 
