@@ -1,10 +1,11 @@
 #!/usr/bin/env node
 
-var argv = require('minimist')(process.argv.slice(2));
-var findit = require('findit');
-var SourceFile = require('./lib/SourceFile.js');
-var fs = require('fs');
-var start = process.hrtime();
+var argv = require('minimist')(process.argv.slice(2)),
+    findit = require('findit'),
+    SourceFile = require('./lib/SourceFile.js'),
+    fs = require('fs'),
+    Q = require('q'),
+    start = process.hrtime();
 
 if (argv.help) {
     console.log('lint-integrator [options] <directories> <files>');
@@ -35,23 +36,24 @@ if (argv._.length === 0) {
 
 function startFinderOn(aPath) {
     var finder = findit(aPath);
-    var files = [];
+    var filePromises = [];
     finder.on('file', function(file) {
         var aFile = new SourceFile(file);
-        aFile.process();
-        files.push(aFile);
+        filePromises.push(aFile.process());
     });
 
     finder.on('end', function() {
-        var totalIssues = 0;
-        var diff, msecs;
-        files
-        .forEach(function(aFile) {
-            aFile.reportIssues();
-            totalIssues =  totalIssues + aFile.issues.length;
-        });
-        diff = process.hrtime(start);
-        msecs = ((diff[0] * 1e9 + diff[1]) / 1000000).toFixed(0);
-        console.log('[', totalIssues, 'issues in', files.length, 'files in', msecs, 'ms ]');
+        Q.all(filePromises).then(function(files) {
+            var totalIssues = 0;
+            var diff, msecs;
+            files
+            .forEach(function(aFile) {
+                aFile.reportIssues();
+                totalIssues =  totalIssues + aFile.issues.length;
+            });
+            diff = process.hrtime(start);
+            msecs = ((diff[0] * 1e9 + diff[1]) / 1000000).toFixed(0);
+            console.log('[', totalIssues, 'issues in', files.length, 'files in', msecs, 'ms ]');
+        }).done();
     });
 }
