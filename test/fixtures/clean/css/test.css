@@ -1,0 +1,115 @@
+/* basic elements */
+html {
+	margin: 0;
+	padding: 0;
+	}
+body {
+	line-height: 1.88889;
+	color: #555753;
+	background: #fff url(blossoms.jpg) no-repeat bottom right;
+	margin: 0;
+	padding: 0;
+	}
+p {
+	margin-top: 0;
+	text-align: justify;
+	}
+
+a:link {
+	text-decoration: none;
+	color: #B7A5DF;
+	}
+a:visited {
+
+	text-decoration: none;
+	color: #D4CDDC;
+	}
+a:hover, a:focus, a:active {
+	text-decoration: underline;
+	color: #9685BA;
+	}
+abbr {
+	border-bottom: none;
+	}
+
+
+/* specific divs */
+.page-wrapper {
+	background: url(zen-bg.jpg) no-repeat top left;
+	padding: 0 175px 0 110px;
+	margin: 0;
+	position: relative;
+	}
+
+.intro {
+	min-width: 470px;
+	width: 100%;
+	}
+
+.summary {
+	clear: both;
+	margin: 20px 20px 20px 10px;
+	width: 160px;
+	float: left;
+	}
+.summary p {
+	font: italic 1.1em/2.2 georgia;
+	text-align: center;
+	}
+
+.preamble {
+	clear: right;
+	padding: 0 10px 0 10px;
+	}
+.supporting {
+	padding-left: 10px;
+	margin-bottom: 40px;
+	}
+
+footer {
+	text-align: center;
+	}
+footer a:link, footer a:visited {
+	margin-right: 20px;
+	}
+
+.sidebar {
+	margin-left: 600px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	}
+.sidebar .wrapper {
+	font: 10px verdana, sans-serif;
+	background: transparent url(paper-bg.jpg) top left repeat-y;
+	margin-top: 150px;
+	width: 130px;
+	}
+
+.sidebar ul {
+	margin: 0;
+	padding: 0;
+	}
+.sidebar li {
+	line-height: 1.3em;
+	background: transparent url(cr1.gif) no-repeat top center;
+	display: block;
+	padding-top: 5px;
+	margin-bottom: 5px;
+	list-style-type: none;
+	}
+.sidebar li a:link {
+	color: #988F5E;
+	}
+.sidebar li a:visited {
+	color: #B3AE94;
+	}
+
+.extra1 {
+	background: transparent url(cr2.gif) top left no-repeat;
+	position: absolute;
+	top: 40px;
+	right: 0;
+	width: 148px;
+	height: 110px;
+	}
