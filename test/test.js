@@ -29,7 +29,6 @@ describe('Integrator', function() {
                 });
                 done();
             });
-
         });
         ['js', 'html', 'css'].forEach(function(fileType) {
             forEachSourceDo('/fixtures/clean/' + fileType + '/', function(source) {
