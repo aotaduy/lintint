@@ -1,0 +1,26 @@
+@headings-color: #fff;
+@line-height-computed: 20px;
+@screen-sm-min: 320;
+
+.h1, .h2, .h3, .h4, .h5, .h6 {
+
+  color: @headings-color;
+
+  small,
+  .small {
+
+    line-height: 1;
+    color: @headings-color;
+  }
+}
+ .h1,
+.h2,
+.h3 {
+  margin-top: @line-height-computed;
+  margin-bottom: (@line-height-computed / 2);
+
+  small,
+  .small {
+      color: red;
+  }
+}

@@ -7,7 +7,7 @@ var SourceFile = require('../lib/SourceFile.js');
 
 describe('Integrator', function() {
     describe('Check source file', function() {
-        ['js', 'html', 'css'].forEach(function(fileType) {
+        ['js', 'html', 'css', 'less'].forEach(function(fileType) {
             forEachSourceDo('/fixtures/broken/' + fileType + '/', function(source) {
                 it('should check in ' + fileType + ' files and report', function(done) {
                     source.process().then(function() {
