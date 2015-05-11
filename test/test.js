@@ -2,8 +2,10 @@ var chai = require('chai');
 var expect = chai.expect;
 var fs = require('fs');
 var path = require('path');
+var sinon = require('sinon');
 
 var SourceFile = require('../lib/SourceFile.js');
+var CliConstructor = require('../lib/Cli.js');
 
 describe('Integrator', function() {
     describe('Check source file', function() {
@@ -40,6 +42,24 @@ describe('Integrator', function() {
                 });
             });
         });
+    });
+});
+
+describe('CLI test Console', function() {
+    var consoleSpy, CLI;
+    it('should show help', function() {
+        consoleSpy = sinon.stub(console, 'log');
+        CLI = new CliConstructor(['--help']);
+        CLI.dispatch();
+        expect(consoleSpy.callCount).to.be.equal(6);
+        consoleSpy.restore();
+    });
+    it('should show version', function() {
+        consoleSpy = sinon.stub(console, 'log');
+        CLI = new CliConstructor(['--version']);
+        CLI.dispatch();
+        expect(consoleSpy.calledOnce).to.be.true;
+        consoleSpy.restore();
     });
 });
 
