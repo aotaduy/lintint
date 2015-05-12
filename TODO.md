@@ -6,9 +6,6 @@ Allow the user to choose between the project configuration files and lintint con
 ##Priority 2
 Add jsonlint integration
 
-##Priority 3
-Refactor cli into a separate file.
-
 ##Done
 Add commandline options to allow user to enter a list of file patterns or a list of directories.
 Add spellcheckvars support
@@ -18,3 +15,4 @@ Use a better structure to store issues in order for each file. (tested SortedLis
 Add csslint integration
 Add lessc integration
 Refactor tests, add helper function, add test cases
+Refactor cli into a separate file.

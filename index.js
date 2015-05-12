@@ -4,4 +4,6 @@ var CLIConstructor = require('./lib/Cli.js'),
     CLI;
 
 CLI = new CLIConstructor(process.argv.slice(2));
-CLI.dispatch();
+CLI.runPromise().then(function(returnCode) {
+    process.exit(returnCode);
+});
