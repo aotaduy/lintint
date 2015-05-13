@@ -35,5 +35,7 @@ Available options:
 Git-Repo (https://github.com/aotaduy/lintint.git)
 
 ##Configuration
-lintint uses the configuration files located at:
+By default lintint uses the configuration files located at:
 <package-root>/config/
+
+But if you use the --config=local flag it will use .jscsrc .eslintrc .htmllintrc files local to your project.

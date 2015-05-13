@@ -1,7 +1,6 @@
 ##Priority 1
 Read files only once
 Add commandline option to allow/disallow recursive exploration of directories
-Allow the user to choose between the project configuration files and lintint configuration files.
 
 ##Priority 2
 Add jsonlint integration
@@ -16,3 +15,4 @@ Add csslint integration
 Add lessc integration
 Refactor tests, add helper function, add test cases
 Refactor cli into a separate file.
+Allow the user to choose between the project configuration files and lintint configuration files.
