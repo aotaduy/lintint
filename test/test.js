@@ -1,11 +1,11 @@
 var chai = require('chai');
 var expect = chai.expect;
-var chaiAsPromised = require("chai-as-promised");
+var chaiAsPromised = require('chai-as-promised');
 chai.use(chaiAsPromised);
 var fs = require('fs');
 var path = require('path');
 var sinon = require('sinon');
-var ConfigurationResolver = require('../lib/ConfigurationResolver.js');
+var config = require('../lib/ConfigurationResolver.js');
 var SourceFile = require('../lib/SourceFile.js');
 var CliConstructor = require('../lib/Cli.js');
 
@@ -25,8 +25,7 @@ describe('Integrator', function() {
             var previousLine, source;
             previousLine = 0;
             source = new SourceFile(
-                path.join(__dirname, './fixtures/broken/js/varspelling.js'),
-                ConfigurationResolver.initializeGlobal()
+                path.join(__dirname, './fixtures/broken/js/varspelling.js')
             );
 
             source.process().then(function() {
@@ -95,7 +94,13 @@ describe('Configuration selection', function() {
     it('should select global configuration files', function(done) {
         var CLI = new CliConstructor(['--config=global', path.join(__dirname, './fixtures/clean/css')]);
         CLI.dispatch();
-        expect(CLI.configurationResolver.cssLintPath()).to.be.equal(path.resolve(__dirname, '../config/.csslintrc'));
+        expect(config.getInstance()).to.have.not.ownProperty('basePath');
+        done();
+    });
+    it('should default to global configuration files', function(done) {
+        var CLI = new CliConstructor([path.join(__dirname, './fixtures/clean/css')]);
+        CLI.dispatch();
+        expect(config.getInstance()).to.have.not.ownProperty('basePath');
         done();
     });
     it('should select local configuration file', function(done) {
@@ -104,18 +109,18 @@ describe('Configuration selection', function() {
             path.join(__dirname, './fixtures/clean/css')
         ]);
         CLI.dispatch();
-        expect(CLI.configurationResolver.cssLintPath())
-            .to.be.equal(path.resolve(__dirname, './fixtures/.csslintrc'));
+        expect(config.getInstance()).to.have.ownProperty('basePath');
         done();
     });
 });
 
 function forEachSourceDo(aPath, f) {
-    var files = fs.readdirSync(path.join(__dirname, aPath));
-    var source,
-    config = ConfigurationResolver.initializeGlobal();
+    var
+        files = fs.readdirSync(path.join(__dirname, aPath)),
+        source;
+
     files.forEach(function(aFilePath) {
-        source = new SourceFile(path.join(__dirname, aPath, aFilePath), config);
+        source = new SourceFile(path.join(__dirname, aPath, aFilePath));
         f(source);
     });
 }
