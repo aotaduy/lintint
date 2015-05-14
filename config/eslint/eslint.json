@@ -141,7 +141,7 @@
         "radix": 0,
         "semi": 2,
         "semi-spacing": [2, {"before": false, "after": true}],
-        "sort-vars": 1,
+        "sort-vars": 0,
         "space-after-function-name": [0, "never"],
         "space-after-keywords": [0, "always"],
         "space-before-blocks": [0, "always"],
