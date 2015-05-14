@@ -62,7 +62,7 @@ describe('CLI test Console', function() {
         CLI = new CliConstructor(['--help']);
         CLI.runPromise().then(function(exitCode) {
             expect(exitCode).to.be.equal(0);
-            expect(consoleSpy.callCount).to.be.equal(6);
+            expect(consoleSpy.callCount).to.be.equal(8);
             done();
         });
     });
