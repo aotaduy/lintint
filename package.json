@@ -1,11 +1,15 @@
 {
   "name": "lintint",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Integrates linters to check javascript, html, css, less code",
   "main": "index.js",
   "bin": "index.js",
   "scripts": {
     "test": "mocha test"
+  },
+  "repository": {
+      "type": "git",
+      "url": "https://github.com/aotaduy/lintint.git"
   },
   "author": "Andres Otaduy (andreseninternet@hotmail.com)",
   "license": "MIT",
