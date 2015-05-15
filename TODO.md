@@ -1,9 +1,10 @@
 ##Priority 1
-Read files only once
 Add commandline option to allow/disallow recursive exploration of directories
 
 ##Priority 2
 Add jsonlint integration
+Read files only once for eslint & jshint
+
 
 ##Done
 Add commandline options to allow user to enter a list of file patterns or a list of directories.

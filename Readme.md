@@ -15,7 +15,6 @@ This program integrates several lint tools for the javascript stack and allows t
 
 It has integrated a RegExpChecker that allow you to define rules based on a regexp for any kind of file.
 
-
 ## Installation
 ````
 npm install -g lintint
