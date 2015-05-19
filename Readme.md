@@ -25,17 +25,25 @@ npm install -g lintint
 lint-integrator [options] <directories> <files>
 ````
 If called without parameters check recursively the cwd
+
 Available options:
+
 --config =<local|global>
+
     local: uses local project configuration files (.eslintrc, .jscsrc, csslintrc, etc).
+
     global: uses global lintint configuration files.
+
 --help    : Print this help
+
 --version : Print version information
+
 
 Git-Repo (https://github.com/aotaduy/lintint.git)
 
 ## Configuration
 By default lintint uses the configuration files located at:
+
 <package-root>/config/
 
 But if you use the --config=local flag it will use .jscsrc .eslintrc .htmllintrc files local to your project.
