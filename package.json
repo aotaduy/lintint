@@ -1,6 +1,6 @@
 {
   "name": "lintint",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Integrates linters to check javascript, html, css, less code",
   "main": "index.js",
   "bin": "index.js",
