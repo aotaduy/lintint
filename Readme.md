@@ -22,7 +22,7 @@ npm install -g lintint
 
 ## Usage
 ````
-lint-integrator [options] <directories> <files>
+lintint [options] <directories> <files>
 ````
 If called without parameters check recursively the cwd
 
